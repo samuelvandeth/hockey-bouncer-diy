@@ -1,5 +1,170 @@
 <!DOCTYPE html>
-<!-- Simplified for clarity, only including Stripe link placeholder -->
-<a class="button" id="cta-button" href="https://buy.stripe.com/9B6bJ0fVq8Aj2fBfGH9Ve07" target="_blank">
-  📥 Bestel de instructies
-</a>
+<html lang="nl">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Hockey Bouncer DIY</title>
+  <style>
+    body {
+      font-family: sans-serif;
+      margin: 0;
+      background: #f2f2f2;
+      color: #222;
+    }
+    header {
+      background: #111;
+      color: white;
+      padding: 2rem 1rem;
+      text-align: center;
+    }
+    .container {
+      max-width: 700px;
+      margin: -2rem auto 2rem auto;
+      background: white;
+      border-radius: 10px;
+      padding: 2rem;
+      box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+    }
+    h1 {
+      margin-top: 0;
+    }
+    ul {
+      padding-left: 1.2rem;
+    }
+    ul li {
+      margin-bottom: 0.5rem;
+    }
+    img {
+      max-width: 100%;
+      border-radius: 6px;
+      margin: 1rem 0;
+    }
+    .cta-button {
+      display: inline-block;
+      background: #0070f3;
+      color: white;
+      padding: 1rem 2rem;
+      border-radius: 6px;
+      text-decoration: none;
+      font-size: 1rem;
+      margin-top: 1rem;
+    }
+    footer {
+      text-align: center;
+      font-size: 0.9rem;
+      color: #666;
+      padding: 2rem;
+    }
+    .lang-toggle {
+      text-align: right;
+      margin-bottom: 1rem;
+    }
+    .lang-toggle button {
+      margin-left: 0.5rem;
+    }
+    .carousel-controls {
+      text-align: center;
+    }
+    .carousel-controls button {
+      font-size: 1.2rem;
+      margin: 0 0.25rem;
+      padding: 0.4rem 0.8rem;
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <h1 id="title">Bouw je eigen Hockey Bouncer</h1>
+    <p id="subtitle">Professionele rebound, voor een fractie van de prijs</p>
+  </header>
+
+  <div class="container">
+    <div class="lang-toggle">
+      Taal / Language:
+      <button onclick="switchLang('nl')">NL</button>
+      <button onclick="switchLang('en')">EN</button>
+    </div>
+
+    <h2 id="why">Waarom zelf maken?</h2>
+    <ul id="reasons">
+      <li>💰 Slechts €30–€40 aan materiaal (vs. €200+ in de winkel)</li>
+      <li>🛠️ Binnen 2 uur gebouwd met simpele tools</li>
+      <li>💥 Professionele bounce getest door hockeyers</li>
+      <li>📦 Makkelijk mee te nemen, super stevig</li>
+    </ul>
+
+    <img src="bouncer-action.jpg" alt="Hockey bouncer in actie" id="carousel-img">
+
+    <div class="carousel-controls">
+      <button onclick="prevImage()">⬅️</button>
+      <button onclick="nextImage()">➡️</button>
+    </div>
+
+    <p id="order-text">
+      Bestel nu de volledige instructies voor slechts €5. Na betaling krijg je direct toegang tot het bouwplan (PDF + materiaallijst).
+    </p>
+
+    <a class="cta-button" id="cta-button" href="https://buy.stripe.com/9B6bJ0fVq8Aj2fBfGH9Ve07" target="_blank">
+      📥 Bestel de instructies
+    </a>
+  </div>
+
+  <footer>
+    © 2025 BouncerDIY. Geen verzendkosten. Alleen digitaal.
+  </footer>
+
+  <script>
+    const images = ["bouncer-action.jpg", "bouncer-closeup.jpg"];
+    let current = 0;
+
+    function nextImage() {
+      current = (current + 1) % images.length;
+      document.getElementById("carousel-img").src = images[current];
+    }
+
+    function prevImage() {
+      current = (current - 1 + images.length) % images.length;
+      document.getElementById("carousel-img").src = images[current];
+    }
+
+    const translations = {
+      nl: {
+        title: "Bouw je eigen Hockey Bouncer",
+        subtitle: "Professionele rebound, voor een fractie van de prijs",
+        why: "Waarom zelf maken?",
+        reasons: `
+          <li>💰 Slechts €30–€40 aan materiaal (vs. €200+ in de winkel)</li>
+          <li>🛠️ Binnen 2 uur gebouwd met simpele tools</li>
+          <li>💥 Professionele bounce getest door hockeyers</li>
+          <li>📦 Makkelijk mee te nemen, super stevig</li>
+        `,
+        orderText: "Bestel nu de volledige instructies voor slechts €5. Na betaling krijg je direct toegang tot het bouwplan (PDF + materiaallijst).",
+        button: "📥 Bestel de instructies"
+      },
+      en: {
+        title: "Build your own Hockey Bouncer",
+        subtitle: "Pro rebound for a fraction of the price",
+        why: "Why build it yourself?",
+        reasons: `
+          <li>💰 Just €30–€40 in materials (vs. €200+ in stores)</li>
+          <li>🛠️ Built in under 2 hours with simple tools</li>
+          <li>💥 Pro-level bounce tested by players</li>
+          <li>📦 Easy to carry, super sturdy</li>
+        `,
+        orderText: "Order the full instructions for just €5. After payment, you'll get instant access to the full PDF plan and materials list.",
+        button: "📥 Order instructions"
+      }
+    };
+
+    function switchLang(code) {
+      const t = translations[code];
+      document.getElementById("title").textContent = t.title;
+      document.getElementById("subtitle").textContent = t.subtitle;
+      document.getElementById("why").textContent = t.why;
+      document.getElementById("reasons").innerHTML = t.reasons;
+      document.getElementById("order-text").textContent = t.orderText;
+      document.getElementById("cta-button").textContent = t.button;
+    }
+  </script>
+</body>
+</html>
