@@ -30,10 +30,26 @@
       box-shadow: 0 5px 20px rgba(0,0,0,0.1);
       border-radius: 8px;
     }
-    img {
-      max-width: 100%;
-      border-radius: 6px;
+    .carousel {
+      position: relative;
+      width: 100%;
       margin: 1rem 0;
+    }
+    .carousel img {
+      width: 100%;
+      border-radius: 6px;
+      display: none;
+    }
+    .carousel img.active {
+      display: block;
+    }
+    .carousel-controls {
+      text-align: center;
+      margin-top: 0.5rem;
+    }
+    .carousel-controls button {
+      margin: 0 0.5rem;
+      padding: 0.5rem 1rem;
     }
     ul {
       padding-left: 1.2rem;
@@ -83,7 +99,14 @@
       <li>📦 Makkelijk mee te nemen, super stevig</li>
     </ul>
 
-    <img src="https://via.placeholder.com/600x300.png?text=Jouw+Hockey+Bouncer" alt="Hockey Bouncer" />
+    <div class="carousel">
+      <img src="bouncer-action.jpg" alt="Hockey bouncer in actie" class="active">
+      <img src="bouncer-closeup.jpg" alt="Close-up van de bouncer">
+    </div>
+    <div class="carousel-controls">
+      <button onclick="prevImage()">⬅️</button>
+      <button onclick="nextImage()">➡️</button>
+    </div>
 
     <p id="cta-text">Bestel nu de volledige instructies voor slechts €5. Na betaling krijg je direct toegang tot het bouwplan (PDF + materiaallijst).</p>
 
@@ -133,6 +156,25 @@
       document.getElementById("reasons").innerHTML = content[lang].reasons.map(r => `<li>${r}</li>`).join('');
       document.getElementById("cta-text").innerText = content[lang].ctaText;
       document.getElementById("cta-button").innerText = content[lang].ctaButton;
+    }
+
+    let currentImage = 0;
+    const images = document.querySelectorAll('.carousel img');
+
+    function showImage(index) {
+      images.forEach((img, i) => {
+        img.classList.toggle('active', i === index);
+      });
+    }
+
+    function nextImage() {
+      currentImage = (currentImage + 1) % images.length;
+      showImage(currentImage);
+    }
+
+    function prevImage() {
+      currentImage = (currentImage - 1 + images.length) % images.length;
+      showImage(currentImage);
     }
   </script>
 </body>
