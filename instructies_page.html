@@ -1,118 +1,180 @@
 <!DOCTYPE html>
 <html lang="nl">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Instructies: Bouw je eigen Hockey Bouncer</title>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Hockey Bouncer DIY</title>
   <style>
     body {
       font-family: sans-serif;
-      max-width: 700px;
-      margin: 0 auto;
-      padding: 2rem;
-      line-height: 1.6;
-      background: #f8f8f8;
-    }
-    h1, h2 {
+      background: #f5f5f5;
       color: #222;
+      margin: 0;
+      padding: 0;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
     }
-    a.download-button {
-      display: inline-block;
-      background: #1a73e8;
+    header {
+      background: #222;
       color: white;
-      padding: 1rem 2rem;
+      width: 100%;
+      padding: 2rem;
+      text-align: center;
+    }
+    main {
+      max-width: 600px;
+      padding: 2rem;
+      background: white;
+      margin-top: -2rem;
+      box-shadow: 0 5px 20px rgba(0,0,0,0.1);
+      border-radius: 8px;
+    }
+    .carousel {
+      position: relative;
+      width: 100%;
+      margin: 1rem 0;
+    }
+    .carousel img {
+      width: 100%;
       border-radius: 6px;
-      text-decoration: none;
-      margin-bottom: 2rem;
+      display: none;
+    }
+    .carousel img.active {
+      display: block;
+    }
+    .carousel-controls {
+      text-align: center;
+      margin-top: 0.5rem;
+    }
+    .carousel-controls button {
+      margin: 0 0.5rem;
+      padding: 0.5rem 1rem;
     }
     ul {
-      margin-top: 0;
+      padding-left: 1.2rem;
+    }
+    .button {
+      display: inline-block;
+      margin-top: 2rem;
+      padding: 1rem 2rem;
+      background: #1a73e8;
+      color: white;
+      font-weight: bold;
+      text-decoration: none;
+      border-radius: 6px;
     }
     .lang-toggle {
+      margin-top: 1rem;
       text-align: right;
-      margin-bottom: 1rem;
+      width: 100%;
+      padding-right: 2rem;
+      font-size: 0.9rem;
+    }
+    footer {
+      margin-top: 4rem;
+      font-size: 0.8rem;
+      color: #666;
     }
   </style>
 </head>
 <body>
+  <header>
+    <h1 id="title">Bouw je eigen Hockey Bouncer</h1>
+    <p id="subtitle">Professionele rebound, voor een fractie van de prijs</p>
+  </header>
+
   <div class="lang-toggle">
     Taal / Language:
     <button onclick="setLang('nl')">NL</button>
     <button onclick="setLang('en')">EN</button>
   </div>
 
-  <h1 id="title">Bouwinstructies voor je Hockey Bouncer</h1>
-
-  <a class="download-button" href="/bouncer-handleiding.pdf" download id="downloadBtn">📄 Download de PDF</a>
-
-  <div id="instructions">
-    <h2>Benodigdheden</h2>
-    <ul>
-      <li>Tropisch hardhout (Bankirai, Azobé etc.) voor het frame</li>
-      <li>Autoband of transportbandrubber (6–8 mm dik)</li>
-      <li>Dunne EPDM-strip (optioneel, voor afwerking)</li>
-      <li>RVS schroeven, sluitringen</li>
-      <li>Zaag, boor, schroevendraaier, stanleymes</li>
+  <main>
+    <h2 id="why-title">Waarom zelf maken?</h2>
+    <ul id="reasons">
+      <li>💰 Slechts €30–€40 aan materiaal (vs. €200+ in de winkel)</li>
+      <li>🔧 Binnen 2 uur gebouwd met simpele tools</li>
+      <li>💥 Professionele bounce getest door hockeyers</li>
+      <li>📦 Makkelijk mee te nemen, super stevig</li>
     </ul>
 
-    <h2>Stap-voor-stap</h2>
-    <ol>
-      <li><strong>Zaag het houten frame</strong> – Gebruik zwaar tropisch hardhout. Zaag een rechthoekig frame van ca. 120 × 30 cm. Zorg dat de constructie stevig en zwaar genoeg is om op z’n plek te blijven staan.</li>
-      <li><strong>Monteer het onder een hoek</strong> – Bevestig zijpanelen of poten zodat het reboundvlak ongeveer 50–55° achterover helt. Dit is de optimale hoek voor een hockeyrebound.</li>
-      <li><strong>Snij een rubber strip uit een autoband</strong> – Gebruik de zijwand van een oude autoband. Snij een strook van ±7 cm breed, 120 cm lang. Schroef deze strak over de bovenrand van je reboundvlak. Gebruik RVS schroeven met brede sluitringen. Alternatief: gebruik transportbandrubber van 6–8 mm dik.</li>
-      <li><strong>Test de bounce</strong> – Test met een push en flats. Pas de hoek of spanning aan als de bal niet goed terugkomt.</li>
-      <li><strong>Optionele afwerking</strong> – Je kunt over de autoband nog een dunne EPDM-strip spannen voor een strakke look. Dit is optisch en beperkt dempend.</li>
-    </ol>
+    <div class="carousel">
+      <img src="bouncer-action.jpg" alt="Hockey bouncer in actie" class="active">
+      <img src="bouncer-closeup.jpg" alt="Close-up van de bouncer">
+    </div>
+    <div class="carousel-controls">
+      <button onclick="prevImage()">⬅️</button>
+      <button onclick="nextImage()">➡️</button>
+    </div>
 
-    <h2>Tips</h2>
-    <ul>
-      <li>Gebruik rubberen stoeptegels of beton om extra gewicht toe te voegen bij lichte frames</li>
-      <li>Monteer op anti-slipmatten als de bouncer verschuift op kunstgras</li>
-      <li>Voor gebruik op straat: monteer rubber doppen of pads onder het frame</li>
-    </ul>
-  </div>
+    <p id="cta-text">Bestel nu de volledige instructies voor slechts €5. Na betaling krijg je direct toegang tot het bouwplan (PDF + materiaallijst).</p>
+
+    <a class="button" id="cta-button" href="https://buy.stripe.com/test_00g5nZ5BN9Z71Pa9AA" target="_blank">
+      📥 Bestel de instructies
+    </a>
+  </main>
+
+  <footer>
+    &copy; 2025 BouncerDIY. Geen verzendkosten. Alleen digitaal.
+  </footer>
 
   <script>
-    const translations = {
+    const content = {
       nl: {
-        title: "Bouwinstructies voor je Hockey Bouncer",
-        download: "📄 Download de PDF",
-        instructions: document.getElementById("instructions").innerHTML
+        title: "Bouw je eigen Hockey Bouncer",
+        subtitle: "Professionele rebound, voor een fractie van de prijs",
+        whyTitle: "Waarom zelf maken?",
+        reasons: [
+          "💰 Slechts €30–€40 aan materiaal (vs. €200+ in de winkel)",
+          "🔧 Binnen 2 uur gebouwd met simpele tools",
+          "💥 Professionele bounce getest door hockeyers",
+          "📦 Makkelijk mee te nemen, super stevig"
+        ],
+        ctaText: "Bestel nu de volledige instructies voor slechts €5. Na betaling krijg je direct toegang tot het bouwplan (PDF + materiaallijst).",
+        ctaButton: "📥 Bestel de instructies"
       },
       en: {
-        title: "Build Instructions for Your Hockey Rebounder",
-        download: "📄 Download PDF Guide",
-        instructions: `
-          <h2>What You Need</h2>
-          <ul>
-            <li>Tropical hardwood (Bankirai, Azobé, etc.) for the frame</li>
-            <li>Car tire sidewall or conveyor belt rubber (6–8 mm thick)</li>
-            <li>Optional: thin EPDM strip for outer finish</li>
-            <li>Stainless steel screws and washers</li>
-            <li>Saw, drill, screwdriver, utility knife</li>
-          </ul>
-          <h2>Step-by-step</h2>
-          <ol>
-            <li><strong>Saw the wooden frame</strong> – Use dense tropical hardwood. Cut a rectangular frame about 120 × 30 cm. Ensure it is sturdy and heavy enough to stay in place.</li>
-            <li><strong>Mount it at an angle</strong> – Attach side supports so the rebound panel tilts back approximately 50–55°. This gives the best hockey bounce.</li>
-            <li><strong>Cut a rubber strip from a tire</strong> – Use the sidewall of a car tire. Cut a strip about 7 cm wide and 120 cm long. Screw it tightly over the top edge of the panel using stainless screws and wide washers. Alternative: use 6–8 mm conveyor belt rubber.</li>
-            <li><strong>Test the bounce</strong> – Try passing a ball against it. Adjust angle or rubber tension if needed.</li>
-            <li><strong>Optional finish</strong> – You can add a thin EPDM strip on top for visual finish. It adds minimal extra bounce.</li>
-          </ol>
-          <h2>Tips</h2>
-          <ul>
-            <li>Use rubber paving tiles or concrete for extra weight if needed</li>
-            <li>Mount on anti-slip pads for turf or smooth surfaces</li>
-            <li>For street use: add rubber feet or floor pads</li>
-          </ul>
-        `
+        title: "Build Your Own Hockey Rebounder",
+        subtitle: "Professional bounce, at a fraction of the cost",
+        whyTitle: "Why build it yourself?",
+        reasons: [
+          "💰 Only €30–€40 in materials (vs. €200+ in stores)",
+          "🔧 Built in 2 hours with basic tools",
+          "💥 Professional-grade bounce tested by players",
+          "📦 Portable and super sturdy"
+        ],
+        ctaText: "Order the full instructions for just €5. You'll get instant access to the PDF + materials list after payment.",
+        ctaButton: "📥 Get the Instructions"
       }
     };
 
     function setLang(lang) {
-      document.getElementById("title").innerText = translations[lang].title;
-      document.getElementById("downloadBtn").innerText = translations[lang].download;
-      document.getElementById("instructions").innerHTML = translations[lang].instructions;
+      document.getElementById("title").innerText = content[lang].title;
+      document.getElementById("subtitle").innerText = content[lang].subtitle;
+      document.getElementById("why-title").innerText = content[lang].whyTitle;
+      document.getElementById("reasons").innerHTML = content[lang].reasons.map(r => `<li>${r}</li>`).join('');
+      document.getElementById("cta-text").innerText = content[lang].ctaText;
+      document.getElementById("cta-button").innerText = content[lang].ctaButton;
+    }
+
+    let currentImage = 0;
+    const images = document.querySelectorAll('.carousel img');
+
+    function showImage(index) {
+      images.forEach((img, i) => {
+        img.classList.toggle('active', i === index);
+      });
+    }
+
+    function nextImage() {
+      currentImage = (currentImage + 1) % images.length;
+      showImage(currentImage);
+    }
+
+    function prevImage() {
+      currentImage = (currentImage - 1 + images.length) % images.length;
+      showImage(currentImage);
     }
   </script>
 </body>
